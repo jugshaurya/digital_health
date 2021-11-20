@@ -4,22 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-/* Routing */
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import DoctorPage from './components/DoctorPage';
-import PatientPage from './components/PatientPage';
-import AdminPage from './components/AdminPage';
-
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="doctor" element={<DoctorPage />} />
-        <Route path="patient" element={<PatientPage />} />
-        <Route path="admin" element={<AdminPage />} />
-      </Routes>
-    </BrowserRouter>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
