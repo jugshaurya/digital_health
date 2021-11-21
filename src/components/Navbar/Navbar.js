@@ -1,3 +1,4 @@
+import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 // import * as React from 'react';
 // import Tabs from '@mui/material/Tabs';
 // import Tab from '@mui/material/Tab';
@@ -35,6 +36,7 @@ class Navbar extends Component{
             <div className="NavbarItems">
                 <div className="NavbarLogo">
                     <h1>Health ID Card</h1>
+                    <HealthAndSafetyIcon fontSize="large" color="action"/>
                 </div>
                 <div className="NavbarLinks">
                     <ul>
