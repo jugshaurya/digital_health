@@ -1,0 +1,26 @@
+[
+    {
+        "email": "bhagesh@gmail.com",
+        "pass": "1234",
+        "type": "patient",
+        "id": "P1"
+    },
+    {
+        "email": "shaurya@gmail.com",
+        "pass": "1234",
+        "type": "doctor",
+        "id": "D1"
+    },
+    {
+        "email": "himanshi@gmail.com",
+        "pass": "1234",
+        "type": "admin",
+        "id": "A1"
+    },
+    {
+        "email": "rish@gmail.com",
+        "pass": "1234",
+        "type": "admin",
+        "id": "A2"
+    }
+]

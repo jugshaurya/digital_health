@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+<<<<<<< HEAD
 /* Routing */
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
@@ -26,6 +27,11 @@ ReactDOM.render(
         <Route path="/login/admin" element={<AdminPage />} />
       </Routes>
     </BrowserRouter>
+=======
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+>>>>>>> main
   </React.StrictMode>,
   document.getElementById('root')
 );
