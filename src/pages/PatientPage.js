@@ -1,14 +1,13 @@
-
-import PatientMedicalHistory from './Patient/PatientTable';
-
-
 import * as React from 'react';
 import PropTypes from 'prop-types';
+
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import PatientVaccination from './Patient/PatientVaccination';
+
+import PatientVaccination from '../components/Patient/PatientVaccination';
+import PatientMedicalHistory from '../components/Patient/PatientTable';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -53,7 +52,11 @@ export default function PatientPage() {
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="basic tabs example"
+        >
           <Tab label="Medical History" {...a11yProps(0)} />
           <Tab label="Vaccination History" {...a11yProps(1)} />
           <Tab label="Tips/Suggestion" {...a11yProps(2)} />
