@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Graphs</title>
-        <script src='https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js'></script>
-    </head>
-    <body>
-        <h1>City-Wise Recovery Rate in Percentage</h1>
-        <canvas id="myChart" width="5" height="5"></canvas>
-        <script>
-            
-            fetch('/data/data.json')
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Graphs</title>
+    <script src='https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js'></script>
+</head>
+
+<body>
+    <h1>City-Wise Recovery Rate in Percentage</h1>
+    <canvas id="myChart" width="5" height="5"></canvas>
+    <script>
+
+        fetch('/data/data.json')
             .then(function (response) {
                 return response.json();
             })
@@ -23,52 +25,53 @@
                 console.log('Error: ' + err);
             });
 
-            const regions = {};
-            function findRegionData(data) {
-                for (var i = 0; i < data.length; i++) {
-                    if(regions.hasOwnProperty(data[i].region))
-                        regions[data[i].region][1]++;
-                    else{
-                        const r = Math.floor(Math.random() * (245 - 52 + 1) + 52);
-                        const g = Math.floor(Math.random() * (245 - 52 + 1) + 52);
-                        const b = Math.floor(Math.random() * (245 - 52 + 1) + 52); 
-                        regions[data[i].region] = [0, 1, `rgba(${r}, ${g}, ${b}, 0.6)`, `rgba(${r}, ${g}, ${b}, 1)`];
-                    }
-                    if(data[i].status == 'Recovered')
-                        regions[data[i].region][0]++;
+        const regions = {};
+        function findRegionData(data) {
+            for (var i = 0; i < data.length; i++) {
+                if (regions.hasOwnProperty(data[i].region))
+                    regions[data[i].region][1]++;
+                else {
+                    const r = Math.floor(Math.random() * (245 - 52 + 1) + 52);
+                    const g = Math.floor(Math.random() * (245 - 52 + 1) + 52);
+                    const b = Math.floor(Math.random() * (245 - 52 + 1) + 52);
+                    regions[data[i].region] = [0, 1, `rgba(${r}, ${g}, ${b}, 0.6)`, `rgba(${r}, ${g}, ${b}, 1)`];
                 }
-                drawCityWiseRecoveryRate();
+                if (data[i].status == 'Recovered')
+                    regions[data[i].region][0]++;
             }
+            drawCityWiseRecoveryRate();
+        }
 
 
-            const ctx = document.getElementById('myChart').getContext('2d');
+        const ctx = document.getElementById('myChart').getContext('2d');
 
-            async function drawCityWiseRecoveryRate(){
-                const myChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: Object.keys(regions),
-                        datasets: [{
-                            label: 'City-wise Recovery Rate',
-                            data: Object.keys(regions).map(function(key) {return (100*regions[key][0])/regions[key][1]}),
-                            borderWidth: 1,
-                            backgroundColor: Object.keys(regions).map(function(key) {return regions[key][2];})
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                ticks: {
-                                    callback: function(value, index, values) {
-                                        return value + '%';
-                                    }
+        async function drawCityWiseRecoveryRate() {
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(regions),
+                    datasets: [{
+                        label: 'City-wise Recovery Rate',
+                        data: Object.keys(regions).map(function (key) { return (100 * regions[key][0]) / regions[key][1] }),
+                        borderWidth: 1,
+                        backgroundColor: Object.keys(regions).map(function (key) { return regions[key][2]; })
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: function (value, index, values) {
+                                    return value + '%';
                                 }
                             }
                         }
                     }
-                });
-            }
+                }
+            });
+        }
 
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>
