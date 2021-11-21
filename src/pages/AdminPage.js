@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import AdminTable from "./Admin/AdminTable";
+import AdminTable from '../components/Admin/AdminTable';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,7 +49,11 @@ export default function AdminPage() {
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="basic tabs example"
+        >
           <Tab label="Search Medical Record" {...a11yProps(0)} />
           <Tab label="Visualizations" {...a11yProps(1)} />
           {/* <Tab label="Tips/Suggestion" {...a11yProps(2)} /> */}
