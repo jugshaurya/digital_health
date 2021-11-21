@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 
 /* Routing */
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
 import DoctorPage from './components/DoctorPage';
 import PatientPage from './components/PatientPage';
 import AdminPage from './components/AdminPage';
@@ -15,9 +18,12 @@ ReactDOM.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="doctor" element={<DoctorPage />} />
-        <Route path="patient" element={<PatientPage />} />
-        <Route path="admin" element={<AdminPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/login/doctor" element={<DoctorPage />} />
+        <Route path="/login/patient" element={<PatientPage />} />
+        <Route path="/login/admin" element={<AdminPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
