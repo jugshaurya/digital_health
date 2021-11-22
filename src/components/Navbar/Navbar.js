@@ -26,33 +26,34 @@ import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 //     </Box>
 //   );
 // }
-import React, {Component} from 'react'
-import NavbarItems from './NavbarItems'
-import './Navbar.css'
+import React, { Component } from 'react';
+import NavbarItems from './NavbarItems';
+import './Navbar.css';
 
-class Navbar extends Component{
-    render(){
-        return(
-            <div className="NavbarItems">
-                <div className="NavbarLogo">
-                    <h1>Health ID Card</h1>
-                    <HealthAndSafetyIcon fontSize="large" color="action"/>
-                </div>
-                <div className="NavbarLinks">
-                    <ul>
-                        {NavbarItems.map((item,index)=>{
-                        return (<li>
-                                    <a className={item.cName} href={item.url}>
-                                        {item.itemName}
-                                    </a>
-                                </li> 
-                            )}
-                        )}
-                    </ul>
-                </div>
-            </div>
-        )
-    }
+class Navbar extends Component {
+  render() {
+    return (
+      <div className="NavbarItems">
+        <div className="NavbarLogo">
+          <h1>Health</h1>
+          <HealthAndSafetyIcon fontSize="large" color="action" />
+        </div>
+        <div className="NavbarLinks">
+          <ul>
+            {NavbarItems.map((item, index) => {
+              return (
+                <li>
+                  <a className={item.cName} href={item.url}>
+                    {item.itemName}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default Navbar
+export default Navbar;

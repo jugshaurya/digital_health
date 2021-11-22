@@ -8,10 +8,7 @@ import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
-
-
 export default function LoginPage() {
-
   const [id, setid] = useState('');
   const [pass, setpass] = useState('');
 
@@ -46,9 +43,8 @@ export default function LoginPage() {
 
   const login = () => {
     const details = loginData.filter((data) => {
-      return (data.id === id && data.pass === pass)
-    }
-    );
+      return data.id === id && data.pass === pass;
+    });
 
     if (details.length) {
       localStorage.setItem('token', JSON.stringify(details[0]));
@@ -102,6 +98,8 @@ export default function LoginPage() {
           action={action}
         />
       </Box>
+      <b>For Now use these credentials</b>
+      <pre>{JSON.stringify(loginData, false, 1)}</pre>
     </>
   );
 }

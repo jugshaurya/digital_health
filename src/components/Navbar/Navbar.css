@@ -1,40 +1,41 @@
-.NavbarItems{
-    height:5vh;
-    font-size:3vh;
+.NavbarItems {
+  padding: 30px;
+  height: 5vh;
+  font-size: 3vh;
 }
-.NavbarLogo{
-    margin-right:400px;
+.NavbarLogo {
+  margin-right: 1000px;
 }
-.NavbarLinks *{
-    padding:10px;
+.NavbarLinks * {
+  padding: 10px;
 }
-.NavbarItems *{
-    display:inline;
-    color:black;
+.NavbarItems * {
+  display: inline;
+  color: black;
 }
 .Menu-Links {
-    display: inline-block;
-    position: relative;
-    color :black;
-    text-decoration: none;
-    margin-right: 50px;
-    font-size:30px;
-  }
-  
+  display: inline-block;
+  position: relative;
+  color: black;
+  text-decoration: none;
+  margin-right: 50px;
+  font-size: 30px;
+}
+
 .Menu-Links:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 5px;
-    bottom: 0;
-    left: 0;
-    background-color:#62A04B;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-  
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 5px;
+  bottom: 0;
+  left: 0;
+  background-color: #62a04b;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
 .Menu-Links:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
