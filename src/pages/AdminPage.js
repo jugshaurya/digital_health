@@ -45,9 +45,21 @@ export default function AdminPage() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  const token = JSON.parse(localStorage.getItem("token"))
   return (
     <Box sx={{ width: '100%' }}>
+      <div style={{ display: "flex", flexDirection: "column", backgroundColor: "#f0f0f0", color: "purple", fontSize: "1.2rem" }}>
+        <p>
+          Admin Name : {token.name}
+        </p>
+        <p>
+          Admin ID : {token.id}
+        </p>
+        <p>
+          Admin Email : {token.email}
+        </p>
+
+      </div>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs
           value={value}

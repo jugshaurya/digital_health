@@ -3,24 +3,28 @@
         "email": "bhagesh@gmail.com",
         "pass": "1234",
         "type": "patient",
-        "id": "P1"
+        "id": "P1",
+        "name": "bhagesh"
     },
     {
         "email": "shaurya@gmail.com",
         "pass": "1234",
         "type": "doctor",
-        "id": "D1"
+        "id": "D1",
+        "name": "shaurya"
     },
     {
         "email": "himanshi@gmail.com",
         "pass": "1234",
         "type": "admin",
-        "id": "A1"
+        "id": "A1",
+        "name": "himanshi"
     },
     {
         "email": "rish@gmail.com",
         "pass": "1234",
         "type": "admin",
-        "id": "A2"
+        "id": "A2",
+        "name": "rish"
     }
 ]

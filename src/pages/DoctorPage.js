@@ -38,7 +38,7 @@ function a11yProps(index) {
     'aria-controls': `simple-tabpanel-${index}`,
   };
 }
-
+const token = JSON.parse(localStorage.getItem("token"))
 export default function DoctorPage() {
   const [value, setValue] = React.useState(0);
 
@@ -48,6 +48,21 @@ export default function DoctorPage() {
 
   return (
     <Box sx={{ width: '100%' }}>
+      <div style={{ display: "flex", flexDirection: "column", backgroundColor: "#f0f0f0", color: "purple", fontSize: "1.2rem" }}>
+        <p>
+          Doctor Name : {token.name}
+        </p>
+        <p>
+          Doctor ID : {token.id}
+        </p>
+        <p>
+          Doctor Email : {token.email}
+        </p>
+
+
+
+
+      </div>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs
           value={value}

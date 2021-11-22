@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 
 import PatientVaccination from '../components/Patient/PatientVaccination';
 import PatientMedicalHistory from '../components/Patient/PatientTable';
+import PatientTips from '../components/Patient/PatientTips';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -48,9 +49,22 @@ export default function PatientPage() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const token = JSON.parse(localStorage.getItem("token"))
 
   return (
     <Box sx={{ width: '100%' }}>
+      <div style={{ display: "flex", flexDirection: "column", backgroundColor: "#f0f0f0", color: "purple", fontSize: "1.2rem" }}>
+        <p>
+          Patient Name : {token.name}
+        </p>
+        <p>
+          Patient Health ID : {token.id}
+        </p>
+        <p>
+          Patient Email : {token.email}
+        </p>
+
+      </div>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs
           value={value}
@@ -69,7 +83,11 @@ export default function PatientPage() {
         <PatientVaccination />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <div style={{ display: "flex", justifyContent: "space-between", width: "70vw" }}>
+          <PatientTips />
+          <PatientTips />
+          <PatientTips />
+        </div>
       </TabPanel>
     </Box>
   );

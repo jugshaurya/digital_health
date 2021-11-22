@@ -8,11 +8,11 @@ import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
-// import { useNavigate } from 'react-router-dom';
+
 
 export default function LoginPage() {
-  //   const navigate = useNavigate();
-  const [email, setemail] = useState('');
+
+  const [id, setid] = useState('');
   const [pass, setpass] = useState('');
 
   const [open, setOpen] = useState(false);
@@ -45,12 +45,14 @@ export default function LoginPage() {
   );
 
   const login = () => {
-    const details = loginData.filter(
-      (data) => details.email === email && details.pass === pass
+    const details = loginData.filter((data) => {
+      return (data.id === id && data.pass === pass)
+    }
     );
+
     if (details.length) {
-      localStorage.setItem('token', JSON.stringify(details));
-      window.location.href = `/${details.type}`;
+      localStorage.setItem('token', JSON.stringify(details[0]));
+      window.location.href = `/${details[0].type}`;
       handleClick();
     }
   };
@@ -76,9 +78,8 @@ export default function LoginPage() {
         <TextField
           required
           id="outlined-required"
-          label="Email"
-          defaultValue="Email"
-          onChange={(e) => setemail(e.target.value)}
+          label="ID"
+          onChange={(e) => setid(e.target.value)}
         />
         <br />
         <TextField
